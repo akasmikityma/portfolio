@@ -123,7 +123,7 @@ export default function Contact() {
             <CardHeader>
               <CardTitle className="text-white">Send Me a Message</CardTitle>
               <CardDescription className="text-white/70">
-                Fill out the form below and I'll get back to you as soon as possible.
+                Fill out the form below and I&apos;ll get back to you as soon as possible.
               </CardDescription>
             </CardHeader>
             <CardContent>

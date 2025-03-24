@@ -55,11 +55,11 @@ export default function About() {
                 My Journey
               </h3>
               <p className="text-white/70">
-                I'm a web developer with a passion for creating intuitive and engaging digital experiences. With a
+                I&apos;m a web developer with a passion for creating intuitive and engaging digital experiences. With a
                 background in design and programming, I bring a unique perspective to every project.
               </p>
               <p className="text-white/70">
-                I enjoy solving complex problems and turning ideas into reality through clean, efficient code. When I'm
+                I enjoy solving complex problems and turning ideas into reality through clean, efficient code. When I&apos;m
                 not coding, you can find me exploring new technologies, contributing to open-source projects, or
                 enjoying outdoor activities.
               </p>

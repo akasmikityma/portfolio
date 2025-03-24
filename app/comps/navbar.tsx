@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, CSSProperties } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -43,11 +43,15 @@ export default function Navbar() {
         {/* Desktop navigation */}
         <nav className="hidden md:flex gap-6">
           {["Home", "About", "Projects", "Contact"].map((item, index) => (
-            <Link key={item} href={`#${item.toLowerCase()}`} className="text-sm font-medium relative group">
+            <Link
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-sm font-medium relative group"
+            >
               <span className="text-white/80 group-hover:text-white transition-colors">{item}</span>
               <span
                 className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-300 delay-[calc(50ms*var(--index))]"
-                style={{ "--index": index } as any}
+                style={{ "--index": index } as CSSProperties}
               ></span>
             </Link>
           ))}

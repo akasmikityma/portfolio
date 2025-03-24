@@ -1,5 +1,5 @@
 "use client"
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs,FaDocker  } from "react-icons/fa"
+import {  FaJs, FaReact, FaNodeJs,FaDocker  } from "react-icons/fa"
 import { SiTailwindcss, SiGit, SiPostgresql } from "react-icons/si"
 import { SiNextdotjs } from "react-icons/si";
 export default function Skills() {

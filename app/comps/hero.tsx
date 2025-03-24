@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="flex flex-col items-center space-y-8 text-center">
           <div className="space-y-4">
             <h1 className={`text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl ${fadeInClass}`}>
-              Hi, I'm{" "}
+              Hi, I&apos;m{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22d3ee] to-[#a855f7]">
                 Bishal Maity
               </span>
