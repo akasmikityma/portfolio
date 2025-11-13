@@ -33,6 +33,22 @@ export default function Projects() {
       githubUrl: "https://github.com/akasmikityma/forceRight",
     },
     {
+      title: "Adda-Goppo",
+      description: "A Chat app",
+      image: "/AddaGoppo.png",
+      tags: ["Javascript", "Mui", "MongoDB","Node","Express","Scss","socket.io"],
+      liveUrl: "https://chatapp-frontendui.vercel.app",
+      githubUrl: "https://github.com/akasmikityma/chatapp-server",
+    },
+    {
+      title: "mediocure",
+      description: "Appointment booking made simple",
+      image: "/PatientBookingVisit.gif",
+      tags: ["Typescript", "tailwind", "postgres","Node","prisma","shadcn"],
+      liveUrl: "https://mediocure.vercel.app",
+      githubUrl: "https://github.com/akasmikityma/med1",
+    },
+    {
       title: "GaanTaan",
       description: "A collaborative playlist app for parties, road trips, workouts, or any occasion.",
       image: "/GaanTaan.png",
@@ -40,14 +56,6 @@ export default function Projects() {
       liveUrl: "https://gaan-taan.onrender.com",
       githubUrl: "https://github.com/akasmikityma/gaan-taan",
     },
-    {
-      title: "Adda-Goppo",
-      description: "A Chat app",
-      image: "/AddaGoppo.png",
-      tags: ["Javascript", "Mui", "MongoDB","Node","Express","Scss","socket.io"],
-      liveUrl: "https://chatapp-frontendui.vercel.app",
-      githubUrl: "https://github.com/akasmikityma/chatapp-server",
-    }
   ]
 
   return (

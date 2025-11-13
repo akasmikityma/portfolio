@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -25,40 +25,68 @@ export default function Contact() {
 
   const [isSending, setIsSending] = useState(false)
 
+  useEffect(()=>{
+    console.log("NEXT_PUBLIC_SERVICE_ID and NEXT_PUBLIC_TEMPLATE_ID ",process.env.NEXT_PUBLIC_SERVICE_ID as string,process.env.NEXT_PUBLIC_TEMPLATE_ID as string)
+  },[])
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSending(true)
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   setIsSending(true)
 
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_SERVICE_ID as string, // Replace with your Service ID
-        process.env.NEXT_PUBLIC_TEMPLATE_ID as string, // Replace with your Template ID
-        {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        },
-        process.env.NEXT_PUBLIC_USER_ID as string // Replace with your User ID
-      )
-      .then(
-        (result) => {
-          console.log("Email sent:", result.text)
-          alert("Thanks for your message! I'll get back to you soon.")
-          setFormData({ name: "", email: "", message: "" })
-          setIsSending(false)
-        },
-        (error) => {
-          console.error("Error sending email:", error.text)
-          alert("Something went wrong. Please try again later.")
-          setIsSending(false)
-        }
-      )
-  }
+  //   emailjs
+  //     .send(
+  //       process.env.NEXT_PUBLIC_SERVICE_ID as string, // Replace with your Service ID
+  //       process.env.NEXT_PUBLIC_TEMPLATE_ID as string, // Replace with your Template ID
+  //       {
+  //         name: formData.name,
+  //         email: formData.email,
+  //         message: formData.message,
+  //       },
+  //       process.env.NEXT_PUBLIC_USER_ID as string // Replace with your User ID
+  //     )
+  //     .then(
+  //       (result) => {
+  //         console.log("Email sent:", result.text)
+  //         alert("Thanks for your message! I'll get back to you soon.")
+  //         setFormData({ name: "", email: "", message: "" })
+  //         setIsSending(false)
+  //       },
+  //       (error) => {
+  //         console.error("Error sending email:", error.text)
+  //         alert("Something went wrong. Please try again later.")
+  //         setIsSending(false)
+  //       }
+  //     )
+  // }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Thanks for your message! I'll get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        alert("Something went wrong. Please try again later.");
+      }
+    } catch (err) {
+      alert("Network error. Try again later.");
+    }
+
+    setIsSending(false);
+  };
 
   return (
     <section id="contact" ref={ref} className="py-20 md:py-32 relative">
