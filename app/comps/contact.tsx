@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { useInView } from "react-intersection-observer"
-import emailjs from "emailjs-com"
 
 export default function Contact() {
   const { ref, inView } = useInView({
@@ -82,6 +81,7 @@ export default function Contact() {
         alert("Something went wrong. Please try again later.");
       }
     } catch (err) {
+      console.log(err)
       alert("Network error. Try again later.");
     }
 
