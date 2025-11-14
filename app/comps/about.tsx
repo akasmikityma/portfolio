@@ -37,7 +37,7 @@ export default function About() {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 animate-rotate-gradient"></div>
                 <div className="absolute inset-1 rounded-full overflow-hidden bg-black">
                   <Image
-                    src="/me.jpg"
+                    src="/Profile.jpg"
                     alt="Profile"
                     fill
                     className="object-cover rounded-full p-1"
